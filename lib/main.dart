@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:meals_app/screens/bottom_navigation_screen.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 // import 'package:meals_app/screens/categories_screen.dart';
 // import 'package:meals_app/screens/meals_screen.dart';
 // import 'package:meals_app/data/dummy_data.dart';
@@ -15,15 +16,18 @@ final theme = ThemeData(
 );
 
 void main() {
-  runApp(const App());
+  runApp(ProviderScope(
+    child: MyApp(),
+  ));
 }
 
-class App extends StatelessWidget {
-  const App({super.key});
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       theme: theme,
       home: BottomNavigationScreen(),
     );

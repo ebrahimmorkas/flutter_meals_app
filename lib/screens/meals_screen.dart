@@ -1,5 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:meals_app/screens/bottom_navigation_screen.dart';
 // import 'package:meals_app/models/meal.dart';
 // import 'package:meals_app/data/dummy_data.dart';
 import 'package:meals_app/screens/meals_details.dart';

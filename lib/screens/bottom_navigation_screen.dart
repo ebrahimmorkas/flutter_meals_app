@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:meals_app/models/meal.dart';
 import 'package:meals_app/screens/categories_screen.dart';
 import 'package:meals_app/screens/meals_screen.dart';
 
@@ -23,6 +24,11 @@ class _BottomNavigationScreenState extends State<BottomNavigationScreen> {
     MealsScreen(meals: [], title: "Dynamic"),
   ];
 
+  // Crating the list that will store the list items marked as favourites.
+  List<Meal> favourites_meals = [];
+
+  // Creating the function that will be called when the meal item is added to or removed from the favourites.
+  void handleFavouriteClick(Meal meal) {}
   @override
   Widget build(BuildContext context) {
     return Scaffold(
