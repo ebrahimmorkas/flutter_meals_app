@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 // import 'package:meals_app/models/meal.dart';
 // import 'package:meals_app/data/dummy_data.dart';
@@ -13,6 +14,10 @@ class MealsScreen extends StatelessWidget {
 
   final List meals;
   final String title;
+
+  String enum_value_extracter(Enum label) {
+    return label.name;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -97,19 +102,28 @@ class MealsScreen extends StatelessWidget {
                                       ),
                                     ),
                                     Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
                                       children: [
                                         MealsTrait(
                                           icon: Icons.schedule,
                                           label: '${meals[index].duration} min',
                                         ),
+                                        const SizedBox(
+                                          width: 10,
+                                        ),
                                         MealsTrait(
                                           icon: Icons.work,
-                                          label: '${meals[index].complexity}',
+                                          label: enum_value_extracter(
+                                              meals[index].complexity),
+                                        ),
+                                        const SizedBox(
+                                          width: 10,
                                         ),
                                         MealsTrait(
                                           icon: Icons.attach_money,
-                                          label:
-                                              '${meals[index].affordability}',
+                                          label: enum_value_extracter(
+                                              meals[index].affordability),
                                         ),
                                         // Icon(Icons.schedule),
                                         // const SizedBox(

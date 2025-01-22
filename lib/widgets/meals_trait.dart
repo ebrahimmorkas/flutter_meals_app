@@ -9,11 +9,13 @@ class MealsTrait extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
+      // mainAxisSize: MainAxisSize.min,
+      // mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Icon(
           icon,
           color: Colors.white,
-          size: 7.0,
+          size: 17.0,
         ),
         const SizedBox(
           width: 7,
@@ -21,7 +23,7 @@ class MealsTrait extends StatelessWidget {
         Text(label,
             style: TextStyle(
               color: Colors.white,
-              fontSize: 10,
+              fontSize: 16,
             )),
       ],
     );
