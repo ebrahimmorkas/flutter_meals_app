@@ -1,16 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:meals_app/models/meal.dart';
 import 'package:meals_app/screens/categories_screen.dart';
 import 'package:meals_app/screens/meals_screen.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:meals_app/providers/favourite_meals_provider.dart';
 
-class BottomNavigationScreen extends StatefulWidget {
+class BottomNavigationScreen extends ConsumerStatefulWidget {
   const BottomNavigationScreen({super.key});
 
   @override
-  State<BottomNavigationScreen> createState() => _BottomNavigationScreenState();
+  ConsumerState<BottomNavigationScreen> createState() =>
+      _BottomNavigationScreenState();
 }
 
-class _BottomNavigationScreenState extends State<BottomNavigationScreen> {
+class _BottomNavigationScreenState
+    extends ConsumerState<BottomNavigationScreen> {
   int selectedIndex = 0;
 
   void selectedTab(int index) {
@@ -19,11 +24,6 @@ class _BottomNavigationScreenState extends State<BottomNavigationScreen> {
     });
   }
 
-  List<Widget> bottom_navigation_widgets = [
-    CategoriesScreen(),
-    MealsScreen(meals: [], title: "Dynamic"),
-  ];
-
   // Crating the list that will store the list items marked as favourites.
   List<Meal> favourites_meals = [];
 
@@ -31,6 +31,12 @@ class _BottomNavigationScreenState extends State<BottomNavigationScreen> {
   void handleFavouriteClick(Meal meal) {}
   @override
   Widget build(BuildContext context) {
+    final favourites_meals = ref.watch(favourite_meal_provider);
+
+    List<Widget> bottom_navigation_widgets = [
+      CategoriesScreen(),
+      MealsScreen(meals: favourites_meals, title: "Dynamic"),
+    ];
     return Scaffold(
       body: Center(
         child: bottom_navigation_widgets.elementAt(selectedIndex),
