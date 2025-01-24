@@ -3,18 +3,22 @@ import 'package:meals_app/models/category.dart';
 import 'package:meals_app/screens/meals_screen.dart';
 import 'package:meals_app/widgets/single_category.dart';
 import 'package:meals_app/data/dummy_data.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:meals_app/providers/gluten_free_meals_provider.dart';
 // import 'package:meals_app/models/meal.dart';
 
-class CategoriesScreen extends StatelessWidget {
+class CategoriesScreen extends ConsumerWidget {
   const CategoriesScreen({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final finalMeals = ref.watch(gluten_free_meals);
     void selectedCategory(String mealTitle, Category category) {
       // print(mealTitle);
-      List filteredMeal = dummyMeals
+      List filteredMeal = finalMeals
           .where((meal) => meal.categories.contains(category.id))
           .toList();
+
       // for (var element in filteredMeal) {
       //   print(element.categories);
       // }
