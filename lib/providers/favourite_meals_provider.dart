@@ -4,18 +4,21 @@ import 'package:meals_app/models/meal.dart';
 class FavouriteMealsProvider extends StateNotifier<List<Meal>> {
   FavouriteMealsProvider() : super([]);
 
-  void toggle_favourite_click(Meal meal) {
+  bool toggle_favourite_click(Meal meal) {
+    bool is_marked_favourite;
     if (state.contains(meal)) {
       // Meal is already present remove the meal
       state = state.where((mealToRemove) => mealToRemove != meal).toList();
-
+      // Change this variable to false since now it is not favourite
+      is_marked_favourite = false;
       // print(state);
     } else {
       // Meal is not present add the meal
       state = [...state, meal];
-
+      is_marked_favourite = true;
       // print(state);
     }
+    return is_marked_favourite;
   }
 }
 

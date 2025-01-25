@@ -16,18 +16,27 @@ class MealsDetails extends ConsumerStatefulWidget {
 class _MealsDetailsState extends ConsumerState<MealsDetails> {
   @override
   Widget build(BuildContext context) {
-    // final favouriteMeals = ref.watch(favourite_meal_provider);
+    bool is_marked_favourite =
+        ref.watch(favourite_meal_provider).contains(widget.meal);
+    // bool is_marked_favourite = ref.read(favourite_meal_provider.notifier).is_marked_favourite;
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
         actions: [
           IconButton(
             onPressed: () {
-              ref
-                  .read(favourite_meal_provider.notifier)
-                  .toggle_favourite_click(widget.meal);
+              print(is_marked_favourite);
+              setState(
+                () {
+                  is_marked_favourite = ref
+                      .read(favourite_meal_provider.notifier)
+                      .toggle_favourite_click(widget.meal);
+                },
+              );
+              print(is_marked_favourite);
             },
-            icon: Icon(Icons.star),
+            icon: Icon(
+                is_marked_favourite == false ? Icons.star_border : Icons.star),
           ),
         ],
       ),
