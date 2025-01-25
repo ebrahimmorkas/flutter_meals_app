@@ -5,6 +5,7 @@ import 'package:meals_app/widgets/single_category.dart';
 import 'package:meals_app/data/dummy_data.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:meals_app/providers/gluten_free_meals_provider.dart';
+import 'package:meals_app/widgets/drawer_widget.dart';
 // import 'package:meals_app/models/meal.dart';
 
 class CategoriesScreen extends ConsumerWidget {
@@ -33,6 +34,7 @@ class CategoriesScreen extends ConsumerWidget {
       appBar: AppBar(
         title: Text("Meals App"),
       ),
+      drawer: DrawerWidget(),
       body: GridView(
           padding: EdgeInsets.all(17),
           gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(

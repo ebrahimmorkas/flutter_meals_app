@@ -1,11 +1,10 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:meals_app/screens/bottom_navigation_screen.dart';
 // import 'package:meals_app/models/meal.dart';
 // import 'package:meals_app/data/dummy_data.dart';
 import 'package:meals_app/screens/meals_details.dart';
 import 'package:transparent_image/transparent_image.dart';
 import 'package:meals_app/widgets/meals_trait.dart';
+import 'package:meals_app/widgets/drawer_widget.dart';
 
 class MealsScreen extends StatelessWidget {
   const MealsScreen({super.key, required this.meals, required this.title});
@@ -26,6 +25,7 @@ class MealsScreen extends StatelessWidget {
       appBar: AppBar(
         title: Text(title),
       ),
+      drawer: DrawerWidget(),
       body: meals.isEmpty
           ? Center(
               child: Column(
