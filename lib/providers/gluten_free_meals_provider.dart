@@ -7,7 +7,7 @@ class GlutenFreeMeals extends StateNotifier<List<Meal>> {
   GlutenFreeMeals() : super(List.of(dummyMeals));
 
   bool isGluttenFree = false;
-  bool isvegan = false;
+  bool isVegan = false;
   bool vegetarian = false;
   bool isLactoseFree = false;
 
@@ -37,11 +37,11 @@ class GlutenFreeMeals extends StateNotifier<List<Meal>> {
       //     temp_list = [...temp_list, meal];
       //   }
       // }
-    }
-  }
 
-  void toggleVegan(bool toggle) {
-    state = [];
+      for (var meal in temp_list) {
+        state = [...state, meal];
+      }
+    }
   }
 }
 

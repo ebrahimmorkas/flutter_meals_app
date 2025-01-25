@@ -4,7 +4,6 @@ import 'package:meals_app/models/meal.dart';
 import 'package:meals_app/screens/categories_screen.dart';
 import 'package:meals_app/screens/filters_screen.dart';
 import 'package:meals_app/screens/meals_screen.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:meals_app/providers/favourite_meals_provider.dart';
 
 class BottomNavigationScreen extends ConsumerStatefulWidget {
@@ -84,6 +83,7 @@ class _BottomNavigationScreenState
             ),
             ListTile(
               onTap: () {
+                Navigator.pop(context);
                 Navigator.push(
                   context,
                   MaterialPageRoute(
